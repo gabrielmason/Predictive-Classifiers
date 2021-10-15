@@ -103,7 +103,7 @@ def train_and_test_data(train, test, classLabel):
     return [zeroOneLoss, squaredLoss]
 
 #One argument passed in; split data set, analyze NBC preformance
-if (len(sys.argv) == 2):
+if (len(sys.argv) == 3):
     data = pd.read_csv(sys.argv[1], delimiter=",", header='infer', quotechar="\"")
     size = data.shape[0]
     k = [0.01, 0.1, 0.5]
@@ -115,7 +115,7 @@ if (len(sys.argv) == 2):
             temp = data.copy(deep=True)
             train = temp.sample(frac = k[i])
             test = temp.drop(train.index)
-            lossScores = train_and_test_data(train, test)
+            lossScores = train_and_test_data(train, test, sys,argv[2])
             zeroOneMeans[i] += lossScores[0]
             squaredMeans[i] += lossScores[1]
         zeroOneMeans[i] /= numTrials
@@ -142,7 +142,7 @@ if (len(sys.argv) == 2):
     plt.show()
     
 #Training set and testing set provided as arguments; run NBC one time
-if (len(sys.argv) == 3):
+if (len(sys.argv) == 4):
     train = pd.read_csv(sys.argv[1], delimiter=",", header='infer', quotechar="\"")
     test = pd.read_csv(sys.argv[2], delimiter=",", header='infer', quotechar="\"")
-    lossScores = train_and_test_data(train, test)
+    lossScores = train_and_test_data(train, test, sys.argv[3])
