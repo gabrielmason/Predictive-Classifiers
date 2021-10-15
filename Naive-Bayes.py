@@ -141,9 +141,6 @@ if (len(sys.argv) == 2):
     plt.plot(xticks, squaredMeans)
     plt.show()
     
-#Training set provided as argument with no testing set
-if (len(sys.argv) > 3):
-    print('Incorrect Number of arguments')
 #Training set and testing set provided as arguments; run NBC one time
 if (len(sys.argv) == 3):
     train = pd.read_csv(sys.argv[1], delimiter=",", header='infer', quotechar="\"")
