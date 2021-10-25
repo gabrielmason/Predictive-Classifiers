@@ -24,7 +24,7 @@ def train_and_test_data(train, test, classLabel):
     defaultError = 1 - (testCounts[mostFrequent] / test.shape[0])
     attrList = train.columns
     #Learn the NBC with training data set
-    #find prior probabilities of GFG = 0 and GFG = 1
+    #find prior probabilities of Class Label = 0 and Class Label = 1
     train_size = train.shape[0]
     classLabel_counts = train[classLabel].value_counts()
     num0 = classLabel_counts[0]
@@ -34,7 +34,7 @@ def train_and_test_data(train, test, classLabel):
 
     #Determine parameters
     totalCPD = {}
-    for item in attrList: 
+    for item in attrList:
         #we are looking at each discrete column in the training data
         #determine conditional probability parameters
         CPD = {}
@@ -93,6 +93,7 @@ def train_and_test_data(train, test, classLabel):
         if (predicted_label != true_label):
             numWrong += 1
 
+        #print(f"True Label: {true_label}, Predicted Label: {predicted_label}")
         normalized = [pclass0 / (pclass0 + pclass1), pclass1 / (pclass0 + pclass1)]
         squaredLoss += (1 - normalized[true_label]) * (1 - normalized[true_label])
 
@@ -106,16 +107,18 @@ def train_and_test_data(train, test, classLabel):
 if (len(sys.argv) == 3):
     data = pd.read_csv(sys.argv[1], delimiter=",", header='infer', quotechar="\"")
     size = data.shape[0]
-    k = [0.01, 0.1, 0.5]
-    zeroOneMeans = [0.00, 0.00, 0.00]
-    squaredMeans = [0.00, 0.00, 0.00]
-    numTrials = 10
+    k = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
+    zeroOneMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+    squaredMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+    numTrials = 5
     for i in range (len(k)):
         for j in range (numTrials):
             temp = data.copy(deep=True)
             train = temp.sample(frac = k[i])
             test = temp.drop(train.index)
-            lossScores = train_and_test_data(train, test, sys,argv[2])
+            train.to_csv("Data/YelpTrain.csv", index=False)
+            test.to_csv("Data/YelpTest.csv", index=False)
+            lossScores = train_and_test_data(train, test, sys.argv[2])
             zeroOneMeans[i] += lossScores[0]
             squaredMeans[i] += lossScores[1]
         zeroOneMeans[i] /= numTrials
@@ -127,18 +130,20 @@ if (len(sys.argv) == 3):
     ax.set_xlabel("Training set size")
     ax.set_ylabel("Zero One Loss")
     plt.title("NBC Zero One Loss Learning Curve")
-    xticks = ["200", "2000", "10000"]
+    xticks = ["200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, zeroOneMeans)
     plt.plot(xticks, zeroOneMeans)
+    plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpZeroOneLossNBC.png")
     plt.show()
     plt.clf()
     #squared loss
     ax.set_xlabel("Training set size")
     ax.set_ylabel("Squared Loss")
     plt.title("NBC Squared Loss Learning Curve")
-    xticks = ["200", "2000", "10000"]
+    xticks = ["200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, squaredMeans)
     plt.plot(xticks, squaredMeans)
+    plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpSquaredLossNBC.png")
     plt.show()
     
 #Training set and testing set provided as arguments; run NBC one time
