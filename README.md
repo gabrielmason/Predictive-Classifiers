@@ -6,5 +6,5 @@ Naive Bayes:
 A simple NBC predictive alrogithm. Currently implemented for binary classification, but can easily be extended to support classifying variables 
 with more than 2 possible outcomes. Algorithm assumes that all data is discrete. Upon testing the a sample data set, squared loss converges to about 0.13 with half of the data allocated for training.
 
-Usage: python NaiveBayes.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performence of NBC over mutliple trials.
-python NaiveBayes.py \<trainingData\> testingData labelToPredict: runs NBC once on training and testing data, prints out zero-one and squared loss
+Usage: python NaiveBayes.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performance of NBC over mutliple trials.
+python NaiveBayes.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
