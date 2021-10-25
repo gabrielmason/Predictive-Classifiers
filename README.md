@@ -4,4 +4,4 @@ algorithm that will be uploaded once completed
 
 Naive Bayes:
 A simple NBC predictive alrogithm. Currently implemented for binary classification, but can easily be extended to support classifying variables 
-with more than 2 possible outcomes. Algorithm assumes that all dat in the is discrete. Upon testing the a yelp data set,
+with more than 2 possible outcomes. Algorithm assumes that all data is discrete. Upon testing the a sample data set, squared loss converges to about 0.13 with half of the data allocated for training.
