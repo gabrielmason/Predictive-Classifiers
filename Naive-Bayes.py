@@ -32,13 +32,13 @@ def train_and_test_data(train, test, classLabel):
     class0_prior = num0/train_size
     class1_prior = num1/train_size
 
-    #Determine parameters
+    #Determine conditional probability distribution
     totalCPD = {}
     for item in attrList:
         if (item == classLabel):
             continue
         #we are looking at each discrete column in the training data
-        #determine conditional probability parameters
+        #determine corresponding conditional probability parameters
         CPD = {}
         attrData = train[item]
         #initialize storage for each probability parameter
