@@ -46,6 +46,8 @@ def train_and_test_data(train, test, classLabel):
         #training to ensure that we have all possible parameter values as to avoid 0 probabilities
         bothAttrData = both[item]
         uniqueAttr = bothAttrData.value_counts(normalize = False)
+        #probabilities for each class label represented as array: 
+        #[p(class label = 0 | parameter), p(class label = 1 | parameter)]
         for key, val in uniqueAttr.items():
             CPD[key] = [0.00, 0.00]
     
@@ -113,7 +115,7 @@ if (len(sys.argv) == 3):
     k = [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
     zeroOneMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
     squaredMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-    numTrials = 1
+    numTrials = 3
     for i in range (len(k)):
         print(k[i])
         for j in range (numTrials):
