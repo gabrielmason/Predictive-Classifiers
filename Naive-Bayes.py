@@ -35,6 +35,8 @@ def train_and_test_data(train, test, classLabel):
     #Determine parameters
     totalCPD = {}
     for item in attrList:
+        if (item == classLabel):
+            continue
         #we are looking at each discrete column in the training data
         #determine conditional probability parameters
         CPD = {}
@@ -80,10 +82,11 @@ def train_and_test_data(train, test, classLabel):
         pclass1 = class1_prior
 
         for item in attrList:
-            attribute = totalCPD[f"{item}"]
-            values = attribute[row[item]]
-            pclass0 *= values[0]
-            pclass1 *= values[1]
+            if (item != classLabel):
+                attribute = totalCPD[f"{item}"]
+                values = attribute[row[item]]
+                pclass0 *= values[0]
+                pclass1 *= values[1]
 
         if (pclass0 > pclass1):
             predicted_label = 0
@@ -99,19 +102,20 @@ def train_and_test_data(train, test, classLabel):
 
     squaredLoss /= test_size    
     zeroOneLoss = numWrong / test_size
-    print(f"ZERO-ONE LOSS={zeroOneLoss}\nSQUARED-LOSS={squaredLoss}")
-    #print(f"Test size: {test_size}, numWrong: {numWrong}, Default Error: {defaultError}, ZeroOneLoss: {zeroOneLoss}, Squared loss: {squaredLoss}")
+    #print(f"ZERO-ONE LOSS={zeroOneLoss}\nSQUARED-LOSS={squaredLoss}")
+    print(f"Test size: {test_size}, numWrong: {numWrong}, Default Error: {defaultError}, ZeroOneLoss: {zeroOneLoss}, Squared loss: {squaredLoss}")
     return [zeroOneLoss, squaredLoss]
 
 #One argument passed in; split data set, analyze NBC preformance
 if (len(sys.argv) == 3):
     data = pd.read_csv(sys.argv[1], delimiter=",", header='infer', quotechar="\"")
     size = data.shape[0]
-    k = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
-    zeroOneMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-    squaredMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-    numTrials = 5
+    k = [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
+    zeroOneMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+    squaredMeans = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+    numTrials = 1
     for i in range (len(k)):
+        print(k[i])
         for j in range (numTrials):
             temp = data.copy(deep=True)
             train = temp.sample(frac = k[i])
@@ -130,7 +134,7 @@ if (len(sys.argv) == 3):
     ax.set_xlabel("Training set size")
     ax.set_ylabel("Zero One Loss")
     plt.title("NBC Zero One Loss Learning Curve")
-    xticks = ["200", "2000", "4000", "6000", "8000","10000"]
+    xticks = ["20", "200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, zeroOneMeans)
     plt.plot(xticks, zeroOneMeans)
     plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpZeroOneLossNBC.png")
@@ -140,7 +144,7 @@ if (len(sys.argv) == 3):
     ax.set_xlabel("Training set size")
     ax.set_ylabel("Squared Loss")
     plt.title("NBC Squared Loss Learning Curve")
-    xticks = ["200", "2000", "4000", "6000", "8000","10000"]
+    xticks = ["20", "200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, squaredMeans)
     plt.plot(xticks, squaredMeans)
     plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpSquaredLossNBC.png")
