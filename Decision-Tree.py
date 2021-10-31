@@ -41,7 +41,7 @@ def build_tree(train, classLabel, attrList, height):
     if (1 not in valueCounts):
         valueCounts[1] = 0
 
-    currentGini = gini(valueCounts[0], valueCounts[1]) #maybe delete
+    currentGini = gini(valueCounts[0], valueCounts[1])
 
     p0 = valueCounts[0]/(valueCounts[0]+valueCounts[1])
     p1 = valueCounts[1]/(valueCounts[0]+valueCounts[1])
