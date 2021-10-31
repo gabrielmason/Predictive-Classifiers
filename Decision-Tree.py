@@ -150,7 +150,6 @@ def train_and_test_data(train, test, classLabel):
         if (predicted_label != true_label):
             numWrong += 1
 
-        #print(f"True Label: {true_label}, Predicted Label: {predicted_label}")
         normalized = [pclass0 / (pclass0 + pclass1), pclass1 / (pclass0 + pclass1)]
         squaredLoss += (1 - normalized[true_label]) * (1 - normalized[true_label])
 
