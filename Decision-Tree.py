@@ -70,9 +70,6 @@ def build_tree(train, classLabel, attrList, height):
             if (1 not in splitCounts):
                 splitCounts[1] = 0
 
-            p0 = splitCounts[0]/(splitCounts[0] + splitCounts[1])
-            p1 = splitCounts[1]/(splitCounts[0] + splitCounts[1])
-
             Sa = valueOccurrences[value]
             gain += (Sa/train_size) * gini(splitCounts[0], splitCounts[1])
 
