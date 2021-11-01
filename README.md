@@ -14,6 +14,7 @@ python Naive-Bayes.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs 
 
 Decision Trees:
 A simple NBC predictive alrogithm. Currently implemented for binary classification. Algorithm assumes that all input data is discrete. Upon testing the a sample data set, zero-one loss converges to about 0.12 and squared loss converges to about 0.11 with half of the data allocated for training
+
 ![Screen Shot 2021-10-31 at 8 29 40 PM](https://user-images.githubusercontent.com/54636576/139606772-ebea2b7a-aaab-4515-befb-f47d028ce9de.png)
 ![Screen Shot 2021-10-31 at 8 28 53 PM](https://user-images.githubusercontent.com/54636576/139606773-94c0e50c-f00f-4a9b-97db-69ec44c92698.png)
 Usage: python Decision-Tree.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performance of NBC over mutliple trials. Creates resulting plots
