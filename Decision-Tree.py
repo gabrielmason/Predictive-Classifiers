@@ -154,8 +154,8 @@ def train_and_test_data(train, test, classLabel):
 
     squaredLoss /= test_size    
     zeroOneLoss = numWrong / test_size
-    #print(f"ZERO-ONE LOSS={zeroOneLoss}\nSQUARED-LOSS={squaredLoss}")
-    print(f"Test size: {test_size}, Number ignored: {numIgnored}, default error: {defaultError}, tree height: {maxHeight} numWrong: {numWrong}, ZeroOneLoss: {zeroOneLoss}, Squared loss: {squaredLoss}")
+    print(f"ZERO-ONE LOSS={zeroOneLoss}\nSQUARED-LOSS={squaredLoss}")
+    #print(f"Test size: {test_size}, Number ignored: {numIgnored}, default error: {defaultError}, tree height: {maxHeight} numWrong: {numWrong}, ZeroOneLoss: {zeroOneLoss}, Squared loss: {squaredLoss}")
     return [zeroOneLoss, squaredLoss]
     
 
