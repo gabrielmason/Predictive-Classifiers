@@ -11,6 +11,7 @@ with more than 2 possible outcomes. Algorithm assumes that all data is discrete.
 
 Usage: python Naive-Bayes.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performance of NBC over mutliple trials.
 Creates resulting plots
+
 python Naive-Bayes.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
 
 
@@ -22,6 +23,7 @@ A simple NBC predictive alrogithm. Currently implemented for binary classificati
 ![Screen Shot 2021-10-31 at 8 28 53 PM](https://user-images.githubusercontent.com/54636576/139606773-94c0e50c-f00f-4a9b-97db-69ec44c92698.png)
 
 Usage: python Decision-Tree.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performance of NBC over mutliple trials. Creates resulting plots
+
 python Decision-Tree.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
 
 
