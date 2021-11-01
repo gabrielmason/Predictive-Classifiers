@@ -79,6 +79,8 @@ def build_tree(train, classLabel, attrList, height):
             bestSplit = attr
 
     #build trees of children according to best split
+    if (maxGain < 0.05): #stop building tree if gain isn't high enough
+        return currentTree
     if (bestSplit == "none"):
         return currentTree
 
