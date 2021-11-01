@@ -191,7 +191,6 @@ if (len(sys.argv) == 3):
     xticks = ["20", "200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, zeroOneMeans)
     plt.plot(xticks, zeroOneMeans)
-    plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpZeroOneLossDecisionTree.png")
     plt.show()
     plt.clf()
     #squared loss
@@ -201,7 +200,6 @@ if (len(sys.argv) == 3):
     xticks = ["20", "200", "2000", "4000", "6000", "8000","10000"]
     plt.scatter(xticks, squaredMeans)
     plt.plot(xticks, squaredMeans)
-    plt.savefig("/home/mason143/CS373/myProjects/Plots/YelpSquaredLossDecisionTree.png")
     plt.show()
     
 #Training set and testing set provided as arguments; run NBC one time
