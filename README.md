@@ -1,6 +1,5 @@
 # Predictive-Classifiers
-A set of predictive modeling algorithms using different techniques. Binary Naive Bayes and Decision Trees are complete, and I am current working on a logistic regression
-algorithm that will be uploaded once completed
+A set of predictive modeling algorithms using different techniques. Binary Naive Bayes and Decision Trees are complete, and I am currently working on a logistic regression algorithm that will be uploaded once completed
 
 **Naive Bayes:**
 
