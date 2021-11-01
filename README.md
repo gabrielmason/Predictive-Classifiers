@@ -11,7 +11,10 @@ Creates resulting plots
 python Naive-Bayes.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
 
 Decision Trees:
-A simple NBC predictive alrogithm. Currently implemented for binary classification. Algorithm assumes that all input data is discrete. Upon testing the a sample data set, zero-one loss converges to about 0.12 and squared loss converges to about 0.10 with half of the data allocated for training, however zero-one loss can reach as high as 0.16 depending on the training set randomization.
+A simple NBC predictive alrogithm. Currently implemented for binary classification. Algorithm assumes that all input data is discrete. Upon testing the a sample data set, zero-one loss converges to about 0.12 and squared loss converges to about 0.11 with half of the data allocated for training
 
 Usage: python Decision-Tree.py \<dataFileName\> \<labelToPredict\>; takes data, splits into training and testing data, runs and analyzes performance of NBC over mutliple trials. Creates resulting plots
 python Decision-Tree.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
+
+![Decision Tree Learning Curve](https://user-images.githubusercontent.com/54636576/139606566-6f791354-9df3-4b73-be2a-1a98cb6fea96.png)
+![Decision Tree Squared Loss Learning Curve](https://user-images.githubusercontent.com/54636576/139606636-cba9a5b1-12ba-4702-b07f-d8ae9e6e16bb.png)
