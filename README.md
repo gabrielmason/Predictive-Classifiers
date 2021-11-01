@@ -2,7 +2,8 @@
 A set of predictive modeling algorithms using different techniques. Binary Naive Bayes and Decision Trees are complete, and I am current working on a logistic regression
 algorithm that will be uploaded once completed
 
-Naive Bayes:
+**Naive Bayes:**
+
 A simple NBC predictive alrogithm. Currently implemented for binary classification, but can easily be extended to support classifying variables 
 with more than 2 possible outcomes. Algorithm assumes that all data is discrete. Upon testing the a sample data set, zero-one loss converges to about 0.15 and squared loss converges to about 0.13 with half of the data allocated for training.
 
@@ -14,7 +15,8 @@ Creates resulting plots
 python Naive-Bayes.py \<trainingData\> \<testingData\> \<labelToPredict\>: runs NBC once on training and testing data, prints out zero-one and squared loss
 
 
-Decision Trees:
+**Decision Trees:**
+
 A simple NBC predictive alrogithm. Currently implemented for binary classification. Algorithm assumes that all input data is discrete. Upon testing the a sample data set, zero-one loss converges to about 0.12 and squared loss converges to about 0.11 with half of the data allocated for training
 
 ![Screen Shot 2021-10-31 at 8 29 40 PM](https://user-images.githubusercontent.com/54636576/139606772-ebea2b7a-aaab-4515-befb-f47d028ce9de.png)
